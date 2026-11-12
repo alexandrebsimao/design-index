@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>250 Sites de Inspiração para Web Design & UI/UX</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter e JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Configuração customizada do Tailwind -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            zinc: {
+              850: '#1f1f22',
+              925: '#111113',
+              950: '#09090b',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Barra de rolagem sutil para a sidebar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(161, 161, 170, 0.25);
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(161, 161, 170, 0.45);
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-card {
+      animation: fadeSlideUp 0.2s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 font-sans antialiased transition-colors duration-200 selection:bg-indigo-500/30 selection:text-indigo-600 dark:selection:text-indigo-300">
+
+  <!-- Backdrop do Drawer Mobile -->
+  <div id="mobile-backdrop" class="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs hidden lg:hidden transition-opacity"></div>
+
+  <!-- Layout Principal: Sidebar + Área de Conteúdo -->
+  <div class="min-h-screen flex">
+
+    <!-- SIDEBAR LATERAL (Fixa no Desktop / Gaveta no Mobile) -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 sm:w-80 bg-white dark:bg-zinc-925 border-r border-zinc-200/80 dark:border-zinc-800/80 flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out">
+      
+      <!-- Logo / Cabeçalho da Sidebar -->
+      <div class="p-4 border-b border-zinc-200/80 dark:border-zinc-800/80 flex items-center justify-between gap-2 shrink-0">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 text-white font-mono font-bold text-sm flex items-center justify-center shadow-sm shadow-indigo-500/25">
+            250
+          </div>
+          <div>
+            <span class="block text-sm font-bold tracking-tight text-zinc-900 dark:text-white leading-tight">
+              Design Index
+            </span>
+            <span class="block text-[11px] text-zinc-500 dark:text-zinc-400">
+              Curadoria UI/UX & Web
+            </span>
+          </div>
+        </div>
+
+        <!-- Botão Fechar Sidebar (Mobile) -->
+        <button id="btn-close-sidebar" type="button" aria-label="Fechar menu" class="lg:hidden p-2 rounded-xl text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Atalhos Principais (Todos & Favoritos) -->
+      <div class="p-3 border-b border-zinc-200/80 dark:border-zinc-800/80 space-y-1 shrink-0">
+        <button id="nav-all" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer">
+          <span class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            <span>Todos os 250 sites</span>
+          </span>
+          <span id="sidebar-total-badge" class="font-mono text-xs px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300">
+            250
+          </span>
+        </button>
+
+        <button id="nav-favorites" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer">
+          <span class="flex items-center gap-2.5">
+            <svg id="sidebar-fav-icon" class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+            <span>Meus Favoritos</span>
+          </span>
+          <span id="sidebar-fav-badge" class="font-mono text-xs px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300">
+            0
+          </span>
+        </button>
+      </div>
+
+      <!-- Lista das 17 Categorias -->
+      <div class="px-4 pt-3 pb-1.5 flex items-center justify-between shrink-0">
+        <span class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          17 Categorias
+        </span>
+      </div>
+
+      <nav id="sidebar-categories" class="flex-1 overflow-y-auto custom-scrollbar px-3 pb-4 space-y-0.5" aria-label="Categorias de inspiração">
+        <!-- Preenchido via JS -->
+      </nav>
+
+      <!-- Rodapé da Sidebar: Exportação Rápida -->
+      <div class="p-3 border-t border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/70 dark:bg-zinc-900/40 shrink-0">
+        <p class="text-[11px] text-zinc-500 dark:text-zinc-400 mb-2 px-1">
+          Exportar lista atual (<span id="export-count-label">250</span> itens):
+        </p>
+        <div class="grid grid-cols-2 gap-2">
+          <button id="btn-export-json" type="button" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:border-indigo-400 dark:hover:border-indigo-500/60 transition cursor-pointer">
+            <svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>JSON</span>
+          </button>
+          <button id="btn-export-csv" type="button" class="inline-flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:border-emerald-400 dark:hover:border-emerald-500/60 transition cursor-pointer">
+            <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>CSV</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- COLUNA PRINCIPAL (À direita da Sidebar) -->
+    <div class="flex-1 lg:pl-80 flex flex-col min-w-0">
+
+      <!-- BARRA SUPERIOR FIXA -->
+      <header class="sticky top-0 z-30 border-b border-zinc-200/80 dark:border-zinc-800/80 bg-white/85 dark:bg-zinc-950/85 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 space-y-3">
+          
+          <!-- Linha 1: Botão Menu Mobile + Campo de Busca + Ações -->
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            
+            <!-- Botão Abrir Sidebar Mobile -->
+            <button id="btn-open-sidebar" type="button" aria-label="Abrir categorias" class="lg:hidden p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200/70 dark:hover:bg-zinc-800 transition shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+
+            <!-- Campo de Busca Instantânea -->
+            <div class="relative flex-1">
+              <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-zinc-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z" />
+                </svg>
+              </div>
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Buscar nos 250 sites por nome, domínio, #número, descrição ou categoria..."
+                class="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100/70 dark:bg-zinc-900/90 pl-10 pr-24 py-2.5 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 focus:border-indigo-500 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition"
+              />
+              <div class="absolute inset-y-0 right-0 flex items-center pr-2.5 gap-1.5">
+                <button id="btn-clear-search" type="button" class="hidden px-2 py-1 text-xs font-medium text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200 rounded-lg bg-zinc-200/70 dark:bg-zinc-800 transition cursor-pointer">
+                  Limpar
+                </button>
+                <kbd class="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[11px] font-mono text-zinc-400 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md">
+                  /
+                </kbd>
+              </div>
+            </div>
+
+            <!-- Botão Sorteio Aleatório -->
+            <button id="btn-random-site" type="button" title="Sortear uma referência aleatória" class="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl border border-indigo-200 dark:border-indigo-800/60 bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-xs font-medium transition shrink-0 cursor-pointer">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+              </svg>
+              <span class="hidden md:inline">Aleatório</span>
+            </button>
+
+            <!-- Alternador de Tema Claro / Escuro -->
+            <button id="btn-theme-toggle" type="button" aria-label="Alternar tema" title="Alternar tema claro/escuro" class="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition shrink-0 cursor-pointer">
+              <!-- Ícone via JS -->
+            </button>
+          </div>
+
+          <!-- Linha 2: Status de Contagem, Filtro Favoritos Rápido e Alternador Grade / Lista -->
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <div class="flex items-center gap-2 flex-wrap">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Exibindo <strong id="filtered-count" class="text-zinc-900 dark:text-white font-semibold">250</strong> de <strong id="total-count" class="text-zinc-900 dark:text-white font-semibold">250</strong> referências</span>
+              </div>
+
+              <!-- Chip de Categoria Ativa -->
+              <span id="current-category-chip" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100/70 dark:bg-zinc-900/70 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+                Todas as 17 categorias
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <!-- Botão Favoritos Rápido -->
+              <button id="btn-favorites-quick" type="button" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:border-amber-400 dark:hover:border-amber-500/60 transition cursor-pointer">
+                <svg id="quick-fav-icon" class="w-3.5 h-3.5 text-zinc-400 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+                <span>Favoritos</span>
+                <span id="quick-fav-badge" class="font-mono text-[11px] px-1.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">0</span>
+              </button>
+
+              <!-- Alternador Grade / Lista -->
+              <div class="inline-flex rounded-xl p-0.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800" role="group" aria-label="Modo de visualização">
+                <button id="btn-view-grid" type="button" title="Visualização em Grade" class="p-1.5 rounded-lg bg-white dark:bg-zinc-800 text-indigo-600 dark:text-indigo-400 shadow-xs transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                  </svg>
+                </button>
+                <button id="btn-view-list" type="button" title="Visualização em Lista Compacta" class="p-1.5 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition cursor-pointer">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+      <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- Banner de Filtros Ativos -->
+        <div id="active-filter-banner" class="hidden mb-5 flex items-center justify-between gap-4 px-4 py-2.5 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-800/40 text-xs sm:text-sm">
+          <div class="flex items-center gap-2 text-indigo-900 dark:text-indigo-200 truncate">
+            <svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+            </svg>
+            <span id="active-filter-text" class="truncate">Filtros aplicados</span>
+          </div>
+          <button id="btn-reset-all" type="button" class="font-medium text-indigo-600 dark:text-indigo-400 hover:underline shrink-0 cursor-pointer">
+            Limpar filtros
+          </button>
+        </div>
+
+        <!-- Container dos Cards / Lista -->
+        <div id="sites-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <!-- Renderizado via JS -->
+        </div>
+
+        <!-- Estado Vazio -->
+        <div id="empty-state" class="hidden py-20 text-center max-w-md mx-auto">
+          <div class="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center mx-auto mb-4 text-zinc-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+          </div>
+          <h3 class="text-base font-semibold text-zinc-900 dark:text-white">Nenhuma referência encontrada</h3>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+            Nenhum site corresponde aos filtros atuais. Tente buscar por outro termo ou redefinir os filtros.
+          </p>
+          <button id="btn-empty-reset" type="button" class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition shadow-sm cursor-pointer">
+            Mostrar todos os 250 sites
+          </button>
+        </div>
+
+      </main>
+
+      <!-- RODAPÉ -->
+      <footer class="border-t border-zinc-200/80 dark:border-zinc-800/80 mt-10 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500 dark:text-zinc-400">
+          <p><strong>Design Index 250</strong> — Coleção completa organizada em 17 categorias.</p>
+          <p>Atalhos: <kbd class="px-1.5 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800 font-mono">/</kbd> buscar • <kbd class="px-1.5 py-0.5 rounded bg-zinc-200/70 dark:bg-zinc-800 font-mono">Esc</kbd> limpar</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- MODAL DE INSPIRAÇÃO ALEATÓRIA -->
+  <div id="random-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/65 backdrop-blur-xs">
+    <div class="w-full max-w-lg rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-6 shadow-2xl transform transition-all">
+      <div class="flex items-center justify-between gap-3 mb-4">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200/70 dark:border-indigo-800/50 text-xs font-medium">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+          </svg>
+          Inspiração Sorteada
+        </span>
+        <button id="btn-close-random" type="button" aria-label="Fechar modal" class="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-800 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="random-modal-content">
+        <!-- Preenchido via JS -->
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between gap-3 flex-wrap">
+        <button id="btn-roll-again" type="button" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 text-xs sm:text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-700 transition cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+          </svg>
+          <span>Sortear outro</span>
+        </button>
+
+        <a id="random-visit-link" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-medium shadow-sm transition">
+          <span>Visitar site</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICAÇÃO -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-2 transition-all duration-200">
+    <div class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs sm:text-sm font-medium shadow-lg border border-zinc-800 dark:border-zinc-200">
+      <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+      <span id="toast-message">Ação concluída!</span>
+    </div>
+  </div>
+
+  <!-- BOTÃO FLUTUANTE VOLTAR AO TOPO -->
+  <button id="btn-back-to-top" type="button" aria-label="Voltar ao topo" class="fixed bottom-5 right-5 z-40 p-3 rounded-xl bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-800 shadow-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 cursor-pointer">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <!-- JAVASCRIPT: DADOS COMPLETOS (250 ITENS / 17 CATEGORIAS) E LÓGICA -->
+  <script>
+    // =========================================================================
+    // 1. AS 17 CATEGORIAS OFICIAIS
+    // =========================================================================
+    const CATEGORIES = [
+      { id: "cat-1",  num: 1,  name: "Premiações e Curadorias Gerais (Alto Impacto Visual)", short: "Premiações & Gerais", color: "indigo" },
+      { id: "cat-2",  num: 2,  name: "Landing Pages e Sites de Conversão", short: "Landing Pages", color: "emerald" },
+      { id: "cat-3",  num: 3,  name: "SaaS, Produtos Digitais e Fluxos de UI/UX", short: "SaaS & Produtos", color: "sky" },
+      { id: "cat-4",  num: 4,  name: "Portfólios, Agências e Estúdios Criativos", short: "Portfólios & Estúdios", color: "violet" },
+      { id: "cat-5",  num: 5,  name: "Componentes Específicos e Microinterações", short: "Componentes & Micro UI", color: "amber" },
+      { id: "cat-6",  num: 6,  name: "E-commerce, Tipografia e Comunidades Visuais", short: "E-commerce & Comunidades", color: "rose" },
+      { id: "cat-7",  num: 7,  name: "Mais Curadorias Gerais e Diretórios de Web Design", short: "Diretórios Web", color: "teal" },
+      { id: "cat-8",  num: 8,  name: "Mais Landing Pages, Startups e Micro-SaaS", short: "Startups & Micro-SaaS", color: "cyan" },
+      { id: "cat-9",  num: 9,  name: "Padrões de UI/UX, Fluxos e Sistemas de Design", short: "Padrões UX & Fluxos", color: "blue" },
+      { id: "cat-10", num: 10, name: "Bibliotecas de Componentes, Motion e Experimentos Interativos", short: "Motion & 3D", color: "fuchsia" },
+      { id: "cat-11", num: 11, name: "Tipografia, Paletas de Cores, Ícones e Estúdios", short: "Tipografia & Pesquisa", color: "orange" },
+      { id: "cat-12", num: 12, name: "Mais Galerias, Prêmios e Diretórios de Web Design", short: "Galerias & Prêmios", color: "indigo" },
+      { id: "cat-13", num: 13, name: "Design Systems Públicos de Grandes Empresas", short: "Design Systems", color: "sky" },
+      { id: "cat-14", num: 14, name: "Bibliotecas de Componentes UI e UI Kits", short: "UI Kits & Componentes", color: "emerald" },
+      { id: "cat-15", num: 15, name: "Tipografia, Pairings e Ferramentas de Fonte", short: "Tipografia & Pairings", color: "violet" },
+      { id: "cat-16", num: 16, name: "Ícones, Ilustrações e Assets Visuais", short: "Ícones & Ilustrações", color: "amber" },
+      { id: "cat-17", num: 17, name: "Cores, Gradientes, Templates e Inspiração de Copy/UX", short: "Cores, Templates & Copy", color: "rose" }
+    ];
+
+    // =========================================================================
+    // 2. TODOS OS 250 SITES (EXATAMENTE DE 1 A 250)
+    // =========================================================================
+    const SITES_DATA = [
+      // Categoria 1: Premiações e Curadorias Gerais (1–10)
+      { id: 1, name: "Awwwards", domain: "awwwards.com", catId: "cat-1", desc: "Referência global para sites premiados, microinterações e criatividade técnica." },
+      { id: 2, name: "Godly", domain: "godly.website", catId: "cat-1", desc: "Curadoria rigorosa de sites modernos, experimentais e com forte direção de arte." },
+      { id: 3, name: "Siteinspire", domain: "siteinspire.com", catId: "cat-1", desc: "Biblioteca extensa com filtros precisos por estilo, tipo e assunto." },
+      { id: 4, name: "The FWA", domain: "thefwa.com", catId: "cat-1", desc: "Focado em inovação digital, experiências imersivas, WebGL e interatividade avançada." },
+      { id: 5, name: "CSS Design Awards", domain: "cssdesignawards.com", catId: "cat-1", desc: "Avalia projetos pelos critérios de UI, UX e inovação." },
+      { id: 6, name: "CSS Nectar", domain: "cssnectar.com", catId: "cat-1", desc: "Galeria com curadoria tripla de projetos submetidos por estúdios e desenvolvedores." },
+      { id: 7, name: "Best Website Gallery", domain: "bestwebsite.gallery", catId: "cat-1", desc: "Arquivo histórico com mais de 2.600 sites filtráveis por cor, CMS e framework." },
+      { id: 8, name: "Httpster", domain: "httpster.net", catId: "cat-1", desc: "Vitrine de sites com estética limpa, editorial e tipografia marcante." },
+      { id: 9, name: "Maxibestof", domain: "maxibestof.one", catId: "cat-1", desc: "Coleção minimalista que separa inspirações de sites e fontes tipográficas." },
+      { id: 10, name: "Hover States", domain: "hoverstat.es", catId: "cat-1", desc: "Especializado em layouts não convencionais, brutalismo digital e interações experimentais." },
+
+      // Categoria 2: Landing Pages e Sites de Conversão (11–18)
+      { id: 11, name: "Land-book", domain: "land-book.com", catId: "cat-2", desc: "Atualizado diariamente, permite filtrar landing pages por paleta de cores, tipografia e plataforma." },
+      { id: 12, name: "Lapa Ninja", domain: "lapa.ninja", catId: "cat-2", desc: "Uma das maiores bibliotecas gratuitas com mais de 7.000 capturas de página inteira." },
+      { id: 13, name: "One Page Love", domain: "onepagelove.com", catId: "cat-2", desc: "Focado exclusivamente em sites de página única (one-pagers) e templates." },
+      { id: 14, name: "Landingfolio", domain: "landingfolio.com", catId: "cat-2", desc: "Galeria de landing pages acompanhada de biblioteca de componentes reutilizáveis." },
+      { id: 15, name: "Landing Love", domain: "landing.love", catId: "cat-2", desc: "Exibe gravações em vídeo da rolagem completa para estudo de animações e transições." },
+      { id: 16, name: "Landing.Gallery", domain: "landing.gallery", catId: "cat-2", desc: "Vitrine organizada por construtores e frameworks como Framer, Webflow e Next.js." },
+      { id: 17, name: "Minimal Gallery", domain: "minimal.gallery", catId: "cat-2", desc: "Seleção enxuta voltada para design funcional, espaços em branco e minimalismo." },
+      { id: 18, name: "Dark Mode Design", domain: "darkmodedesign.com", catId: "cat-2", desc: "Curadoria exclusiva de sites e interfaces construídos em tema escuro." },
+
+      // Categoria 3: SaaS, Produtos Digitais e Fluxos de UI/UX (19–27)
+      { id: 19, name: "SaaSUI", domain: "saasui.design", catId: "cat-3", desc: "Capturas reais de aplicações SaaS organizadas por tela (dashboards, onboarding, configurações)." },
+      { id: 20, name: "SaaSFrame", domain: "saasframe.io", catId: "cat-3", desc: "Biblioteca de páginas de marketing, fluxos de produto e e-mails de empresas SaaS." },
+      { id: 21, name: "Saaspo", domain: "saaspo.com", catId: "cat-3", desc: "Galeria dedicada a sites institucionais e landing pages de startups de software." },
+      { id: 22, name: "SaaS Landing Page", domain: "saaslandingpage.com", catId: "cat-3", desc: "Exemplos de páginas de software com filtros por pilha tecnológica." },
+      { id: 23, name: "Mobbin", domain: "mobbin.com", catId: "cat-3", desc: "Maior biblioteca pesquisável de fluxos reais de aplicativos web e mobile." },
+      { id: 24, name: "Nicely Done", domain: "nicelydone.club", catId: "cat-3", desc: "Coleção massiva de telas e fluxos de produtos digitais em produção." },
+      { id: 25, name: "Screenlane", domain: "screenlane.com", catId: "cat-3", desc: "Arquivo de fluxos de usuário e padrões de interface de produtos populares." },
+      { id: 26, name: "Webframe", domain: "webframe.xyz", catId: "cat-3", desc: "Centenas de capturas focadas na estrutura interna de aplicações web." },
+      { id: 27, name: "Really Good UX", domain: "reallygoodux.io", catId: "cat-3", desc: "Referências práticas de onboarding, tours guiados e microcopy de interface." },
+
+      // Categoria 4: Portfólios, Agências e Estúdios Criativos (28–33)
+      { id: 28, name: "Cofolios", domain: "cofolios.com", catId: "cat-4", desc: "Portfólios de designers que estagiaram ou trabalham em grandes empresas de tecnologia." },
+      { id: 29, name: "Killer Portfolio", domain: "killerportfolio.com", catId: "cat-4", desc: "Seleção curada de portfólios individuais, agências e desenvolvedores criativos." },
+      { id: 30, name: "Pafolios", domain: "pafolios.com", catId: "cat-4", desc: "Vitrine dedicada a portfólios de designers de produto, UI/UX e diretores de arte." },
+      { id: 31, name: "Humans", domain: "humans.fyi", catId: "cat-4", desc: "Diretório de sites pessoais e portfólios filtráveis por profissão e cor." },
+      { id: 32, name: "Webflow Showcase", domain: "webflow.com/made-in-webflow", catId: "cat-4", desc: "Projetos publicados na plataforma, muitos disponíveis para clonar e inspecionar." },
+      { id: 33, name: "Framer Gallery", domain: "framer.com/gallery", catId: "cat-4", desc: "Vitrine oficial de sites e portfólios interativos construídos no Framer." },
+
+      // Categoria 5: Componentes Específicos e Microinterações (34–39)
+      { id: 34, name: "Footer Design", domain: "footer.design", catId: "cat-5", desc: "Galeria dedicada exclusivamente a rodapés de sites, organizados por estilo e layout." },
+      { id: 35, name: "Navbar Gallery", domain: "navbar.gallery", catId: "cat-5", desc: "Referências focadas em barras de navegação, mega menus e cabeçalhos." },
+      { id: 36, name: "Call to Idea", domain: "calltoidea.com", catId: "cat-5", desc: "Inspiração por seção específica: páginas 404, tabelas de preços, formulários e logins." },
+      { id: 37, name: "Design Spells", domain: "designspells.com", catId: "cat-5", desc: "Coleção de microinterações sutis, easter eggs e detalhes que elevam a experiência." },
+      { id: 38, name: "Viewport UI", domain: "viewport-ui.design", catId: "cat-5", desc: "Capturas focadas na primeira dobra (hero section) de sites modernos." },
+      { id: 39, name: "Component Gallery", domain: "component.gallery", catId: "cat-5", desc: "Repositório de sistemas de design reais e nomenclaturas de componentes UI." },
+
+      // Categoria 6: E-commerce, Tipografia e Comunidades Visuais (40–50)
+      { id: 40, name: "Commerce Cream", domain: "commercecream.com", catId: "cat-6", desc: "Curadoria das lojas virtuais e experiências de e-commerce mais bem projetadas." },
+      { id: 41, name: "Ecomm Design", domain: "ecomm.design", catId: "cat-6", desc: "Galeria de e-commerces filtrável por plataforma (Shopify, WooCommerce, etc.) e segmento." },
+      { id: 42, name: "Typewolf", domain: "typewolf.com", catId: "cat-6", desc: "Referência essencial para combinações tipográficas aplicadas em projetos web reais." },
+      { id: 43, name: "Fonts In Use", domain: "fontsinuse.com", catId: "cat-6", desc: "Arquivo pesquisável de tipografia aplicada em interfaces, marcas e editoriais." },
+      { id: 44, name: "Behance", domain: "behance.net", catId: "cat-6", desc: "Plataforma da Adobe ideal para estudar estudos de caso completos de UI/UX e branding." },
+      { id: 45, name: "Dribbble", domain: "dribbble.com", catId: "cat-6", desc: "Comunidade voltada para exploração visual rápida, conceitos de interface e ilustrações." },
+      { id: 46, name: "Muzli", domain: "muz.li", catId: "cat-6", desc: "Agregador diário de tendências, artigos e referências de design e tecnologia." },
+      { id: 47, name: "Savee", domain: "savee.it", catId: "cat-6", desc: "Plataforma visual limpa para montar painéis de referência (moodboards)." },
+      { id: 48, name: "Cosmos", domain: "cosmos.so", catId: "cat-6", desc: "Ferramenta de curadoria visual com busca semântica para reunir referências estéticas." },
+      { id: 49, name: "Designspiration", domain: "designspiration.com", catId: "cat-6", desc: "Motor de busca visual com filtro avançado por múltiplos códigos hexadecimais de cor." },
+      { id: 50, name: "Pinterest", domain: "pinterest.com", catId: "cat-6", desc: "Útil para montar moodboards amplos de arquitetura visual, paletas e layouts." },
+
+      // Categoria 7: Mais Curadorias Gerais e Diretórios de Web Design (51–60)
+      { id: 51, name: "Mindsparkle Mag", domain: "mindsparklemag.com", catId: "cat-7", desc: "Curadoria focada em web design minimalista, branding e projetos editoriais." },
+      { id: 52, name: "One Page Mania", domain: "onepagemania.com", catId: "cat-7", desc: "Diretório dedicado a sites de página única com navegação criativa." },
+      { id: 53, name: "Admire The Web", domain: "admiretheweb.com", catId: "cat-7", desc: "Seleção diária de sites com foco em usabilidade e tipografia limpa." },
+      { id: 54, name: "Design Made in Germany", domain: "designmadeingermany.de", catId: "cat-7", desc: "Vitrine de estúdios, agências e projetos digitais da cena alemã." },
+      { id: 55, name: "French Design Index", domain: "frenchdesignindex.com", catId: "cat-7", desc: "Galeria dedicada a sites e experiências interativas criadas na França." },
+      { id: 56, name: "Siiimple", domain: "siiimple.com", catId: "cat-7", desc: "Diretório voltado exclusivamente para web design minimalista e direto ao ponto." },
+      { id: 57, name: "Brutalist Websites", domain: "brutalistwebsites.com", catId: "cat-7", desc: "Arquivo clássico de estética brutalista, crua e experimental na web." },
+      { id: 58, name: "Web Design Inspiration", domain: "webdesign-inspiration.com", catId: "cat-7", desc: "Catálogo amplo organizável por setor de atuação, estilo e cor." },
+      { id: 59, name: "Good Web Design", domain: "goodweb.design", catId: "cat-7", desc: "Galeria organizada por seções de página (hero, recursos, depoimentos, preços)." },
+      { id: 60, name: "Pages.xyz", domain: "pages.xyz", catId: "cat-7", desc: "Curadoria limpa de páginas bem estruturadas de startups, produtos e criadores." },
+
+      // Categoria 8: Mais Landing Pages, Startups e Micro-SaaS (61–70)
+      { id: 61, name: "Startup Websites", domain: "startupwebsites.co", catId: "cat-8", desc: "Coleção focada na comunicação visual e estrutura de startups em crescimento." },
+      { id: 62, name: "Indie Hackers Products", domain: "indiehackers.com/products", catId: "cat-8", desc: "Diretório real de milhares de Micro-SaaS e projetos independentes em produção." },
+      { id: 63, name: "Product Hunt", domain: "producthunt.com", catId: "cat-8", desc: "Fonte diária para analisar as landing pages e apresentações de lançamentos recentes." },
+      { id: 64, name: "BetaList", domain: "betalist.com", catId: "cat-8", desc: "Vitrine de startups em fase inicial, ótima para ver tendências visuais emergentes." },
+      { id: 65, name: "Launched", domain: "launched.io", catId: "cat-8", desc: "Curadoria de sites recém-lançados com foco em design moderno e clareza de proposta." },
+      { id: 66, name: "Doing Cool Stuff", domain: "doingcoolstuff.xyz", catId: "cat-8", desc: "Diretório de estúdios digitais e marcas com identidade visual fora do padrão." },
+      { id: 67, name: "Curated Design", domain: "curated.design", catId: "cat-8", desc: "Seleção enxuta de sites com excelente execução de grid e hierarquia visual." },
+      { id: 68, name: "Unsection", domain: "unsection.com", catId: "cat-8", desc: "Galeria que cataloga seções específicas de landing pages em vez da página inteira." },
+      { id: 69, name: "Dark.design", domain: "dark.design", catId: "cat-8", desc: "Diretório alternativo focado em interfaces escuras, gradientes sutis e brilho neon." },
+      { id: 70, name: "Light Mode Design", domain: "lightmodedesign.com", catId: "cat-8", desc: "Contraponto dedicado a interfaces claras, arejadas e de alto contraste." },
+
+      // Categoria 9: Padrões de UI/UX, Fluxos e Sistemas de Design (71–80)
+      { id: 71, name: "UI Garage", domain: "uigarage.net", catId: "cat-9", desc: "Milhares de padrões de interface filtráveis por plataforma (Web, iOS, Android) e componente." },
+      { id: 72, name: "UI Sources", domain: "uisources.com", catId: "cat-9", desc: "Biblioteca de interações e fluxos em vídeo gravados diretamente de apps reais." },
+      { id: 73, name: "Page Flows", domain: "pageflows.com", catId: "cat-9", desc: "Gravações completas de jornadas do usuário (cadastro, checkout, upgrade de plano)." },
+      { id: 74, name: "Checklist Design", domain: "checklist.design", catId: "cat-9", desc: "Guia prático dos elementos essenciais que cada tipo de página ou componente deve ter." },
+      { id: 75, name: "Design Systems Repo", domain: "designsystemsrepo.com", catId: "cat-9", desc: "Lista abrangente de design systems públicos (Shopify Polaris, Atlassian, IBM Carbon)." },
+      { id: 76, name: "Design Systems For Figma", domain: "designsystemsforfigma.com", catId: "cat-9", desc: "Repositório de sistemas de design e bibliotecas de componentes documentados." },
+      { id: 77, name: "Laws of UX", domain: "lawsofux.com", catId: "cat-9", desc: "Princípios de psicologia aplicados à interface com exemplos visuais claros." },
+      { id: 78, name: "Growth.Design", domain: "growth.design", catId: "cat-9", desc: "Estudos de caso visuais em formato de história em quadrinhos analisando UX de grandes produtos." },
+      { id: 79, name: "Baymard Institute", domain: "baymard.com/ux-benchmark", catId: "cat-9", desc: "Referência mundial em usabilidade de e-commerce, filtros, busca e checkout." },
+      { id: 80, name: "Refero", domain: "refero.design", catId: "cat-9", desc: "Mais de 20 mil telas de aplicativos web e mobile pesquisáveis por padrão de UI." },
+
+      // Categoria 10: Bibliotecas de Componentes, Motion e Experimentos Interativos (81–90)
+      { id: 81, name: "CodePen", domain: "codepen.io/trending", catId: "cat-10", desc: "Laboratório aberto de microinterações, shaders, layouts CSS Grid e animações JS." },
+      { id: 82, name: "Codrops", domain: "tympanus.net/codrops", catId: "cat-10", desc: "Tutoriais e demonstrações avançadas de transições de página, WebGL e tipografia cinética." },
+      { id: 83, name: "Aceternity UI", domain: "ui.aceternity.com", catId: "cat-10", desc: "Componentes modernos com animações de destaque para landing pages e SaaS." },
+      { id: 84, name: "Magic UI", domain: "magicui.design", catId: "cat-10", desc: "Coleção de blocos animados e microinterações voltadas para sites de produtos digitais." },
+      { id: 85, name: "Motion.dev Examples", domain: "motion.dev/examples", catId: "cat-10", desc: "Exemplos práticos de física de animação, scroll-linked animations e gestos." },
+      { id: 86, name: "Shadertoy", domain: "shadertoy.com", catId: "cat-10", desc: "Referência técnica para efeitos visuais generativos, fundos dinâmicos e gráficos em GLSL." },
+      { id: 87, name: "Three.js Examples", domain: "threejs.org/examples", catId: "cat-10", desc: "Vitrine oficial de possibilidades 3D e experiências interativas no navegador." },
+      { id: 88, name: "GSAP Showcase", domain: "gsap.com/showcase", catId: "cat-10", desc: "Sites que utilizam animações complexas baseadas em rolagem e timelines." },
+      { id: 89, name: "LottieFiles", domain: "lottiefiles.com", catId: "cat-10", desc: "Biblioteca de microanimações vetoriais leves para ícones, estados vazios e loaders." },
+      { id: 90, name: "Spline Community", domain: "spline.design/community", catId: "cat-10", desc: "Modelos e cenas 3D interativas prontas para incorporar em interfaces web." },
+
+      // Categoria 11: Tipografia, Paletas de Cores, Ícones e Estúdios (91–100)
+      { id: 91, name: "Fontshare", domain: "fontshare.com", catId: "cat-11", desc: "Catálogo gratuito de fontes de alta qualidade com exemplos de pareamento aplicados." },
+      { id: 92, name: "Uncut", domain: "uncut.wtf", catId: "cat-11", desc: "Coleção curada de fontes tipográficas contemporâneas e experimentais gratuitas." },
+      { id: 93, name: "Type Detail", domain: "typedetail.com", catId: "cat-11", desc: "Análise anatômica detalhada de fontes clássicas e modernas na web." },
+      { id: 94, name: "Realtime Colors", domain: "realtimecolors.com", catId: "cat-11", desc: "Ferramenta visual para testar paletas de cores e fontes diretamente em um layout de site real." },
+      { id: 95, name: "Happy Hues", domain: "happyhues.co", catId: "cat-11", desc: "Paletas de cores aplicadas em contexto real mostrando onde usar cada tom (fundo, texto, botão)." },
+      { id: 96, name: "Coolors Trending", domain: "coolors.co/palettes/trending", catId: "cat-11", desc: "Combinações de cores populares para definir a identidade visual de projetos." },
+      { id: 97, name: "Icones.js.org", domain: "icones.js.org", catId: "cat-11", desc: "Buscador unificado com dezenas de bibliotecas de ícones (Lucide, Phosphor, Tabler, Radix)." },
+      { id: 98, name: "SVGL", domain: "svgl.app", catId: "cat-11", desc: "Diretório rápido de logotipos vetoriais de tecnologias, marcas e ferramentas SaaS." },
+      { id: 99, name: "Read.cv", domain: "read.cv", catId: "cat-11", desc: "Rede de profissionais criativos com perfis minimalistas e portfólios de altíssimo nível." },
+      { id: 100, name: "Are.na", domain: "are.na", catId: "cat-11", desc: "Plataforma colaborativa de pesquisa visual usada por designers para arquivar referências estéticas sem algoritmos." },
+
+      // Categoria 12: Mais Galerias, Prêmios e Diretórios de Web Design (101–125)
+      { id: 101, name: "One Page Showcase", domain: "onepageshowcase.com", catId: "cat-12", desc: "Seleção enxuta de sites one-page modernos." },
+      { id: 102, name: "Web Design Ledger", domain: "webdesignledger.com", catId: "cat-12", desc: "Publicação clássica com curadorias frequentes de layouts e tendências." },
+      { id: 103, name: "Design Shack Gallery", domain: "designshack.net/gallery", catId: "cat-12", desc: "Arquivo histórico de sites categorizados por cor e estilo." },
+      { id: 104, name: "CSS Winner", domain: "csswinner.com", catId: "cat-12", desc: "Plataforma internacional de premiação e avaliação de sites." },
+      { id: 105, name: "CSS Light", domain: "csslight.com", catId: "cat-12", desc: "Galeria de vitrine para desenvolvedores e agências digitais." },
+      { id: 106, name: "CSS Reel", domain: "cssreel.com", catId: "cat-12", desc: "Diretório de premiação com filtros por país e segmento." },
+      { id: 107, name: "Orpetron", domain: "orpetron.com", catId: "cat-12", desc: "Prêmio diário de design web focado em criatividade e execução técnica." },
+      { id: 108, name: "Mindsparkle Web", domain: "mindsparklemag.com/website", catId: "cat-12", desc: "Seção dedicada exclusivamente a sites de estética apurada." },
+      { id: 109, name: "Abduzeedo", domain: "abduzeedo.com", catId: "cat-12", desc: "Coletivo de design com curadorias diárias de visual, UI e direção de arte." },
+      { id: 110, name: "It's Nice That", domain: "itsnicethat.com", catId: "cat-12", desc: "Referência mundial em direção de arte, design gráfico e projetos digitais criativos." },
+      { id: 111, name: "Creative Boom", domain: "creativeboom.com", catId: "cat-12", desc: "Vitrine de projetos criativos, estúdios e portfólios selecionados." },
+      { id: 112, name: "Communication Arts Webpicks", domain: "commarts.com/webpicks", catId: "cat-12", desc: "Seleção editorial de excelência em design interativo." },
+      { id: 113, name: "Webby Awards Winners", domain: "winners.webbyawards.com", catId: "cat-12", desc: "Arquivo oficial dos melhores sites e experiências digitais do ano." },
+      { id: 114, name: "Red Dot Interactive", domain: "red-dot.org", catId: "cat-12", desc: "Projetos digitais premiados por design de interface e comunicação." },
+      { id: 115, name: "Awwwards Collections", domain: "awwwards.com/collections", catId: "cat-12", desc: "Coleções temáticas (menus, tipografia, WebGL, rodapés) dentro do Awwwards." },
+      { id: 116, name: "Site of Sites", domain: "siteofsites.co", catId: "cat-12", desc: "Diretório minimalista de sites com foco em tipografia e estrutura limpa." },
+      { id: 117, name: "Pretty Websites", domain: "prettywebsites.design", catId: "cat-12", desc: "Galeria curada de sites visualmente equilibrados e modernos." },
+      { id: 118, name: "Clean Websites", domain: "cleanwebsites.co", catId: "cat-12", desc: "Vitrine focada em simplicidade, respiro visual e clareza." },
+      { id: 119, name: "Web Inspiration", domain: "webinspiration.io", catId: "cat-12", desc: "Catálogo organizado por estilo visual e tipo de negócio." },
+      { id: 120, name: "A Fresh Web", domain: "afreshweb.com", catId: "cat-12", desc: "Seleção de sites independentes com propostas visuais autênticas." },
+      { id: 121, name: "See Saw", domain: "seesaw.website", catId: "cat-12", desc: "Curadoria frequente de sites com layouts criativos e interações sutis." },
+      { id: 122, name: "Spotted in Prod", domain: "spottedinprod.com", catId: "cat-12", desc: "Capturas e vídeos de produtos digitais reais em produção." },
+      { id: 123, name: "Waveguide", domain: "waveguide.io", catId: "cat-12", desc: "Biblioteca visual de padrões e referências de design digital." },
+      { id: 124, name: "Craftwork Curated", domain: "craftwork.design/curated", catId: "cat-12", desc: "Seleção de sites e interfaces feita pela equipe da Craftwork." },
+      { id: 125, name: "Muzli Search", domain: "search.muz.li", catId: "cat-12", desc: "Motor de busca visual que indexa dezenas de galerias de design simultaneamente." },
+
+      // Categoria 13: Design Systems Públicos de Grandes Empresas (126–150)
+      { id: 126, name: "Material Design 3", domain: "m3.material.io", catId: "cat-13", desc: "Sistema de design oficial do Google com diretrizes completas de UI." },
+      { id: 127, name: "Apple Human Interface Guidelines", domain: "developer.apple.com/design/human-interface-guidelines", catId: "cat-13", desc: "Padrões de interface e interação da Apple." },
+      { id: 128, name: "Microsoft Fluent 2", domain: "fluent2.microsoft.design", catId: "cat-13", desc: "Sistema de design multiplataforma da Microsoft." },
+      { id: 129, name: "Shopify Polaris", domain: "polaris.shopify.com", catId: "cat-13", desc: "Referência absoluta para interfaces administrativas e e-commerce B2B." },
+      { id: 130, name: "Atlassian Design System", domain: "atlassian.design", catId: "cat-13", desc: "Padrões excelentes para ferramentas de produtividade e colaboração." },
+      { id: 131, name: "IBM Carbon Design System", domain: "carbondesignsystem.com", catId: "cat-13", desc: "Sistema aberto focado em aplicações corporativas e dados complexos." },
+      { id: 132, name: "GitHub Primer", domain: "primer.style", catId: "cat-13", desc: "Design system oficial do GitHub para ferramentas de desenvolvimento." },
+      { id: 133, name: "Salesforce Lightning", domain: "lightningdesignsystem.com", catId: "cat-13", desc: "Referência para CRMs, tabelas densas e fluxos corporativos." },
+      { id: 134, name: "Adobe Spectrum", domain: "spectrum.adobe.com", catId: "cat-13", desc: "Padrões de interface para ferramentas criativas e painéis complexos." },
+      { id: 135, name: "Uber Base Web", domain: "baseweb.design", catId: "cat-13", desc: "Sistema de componentes usado nas aplicações web da Uber." },
+      { id: 136, name: "Airbnb Design", domain: "airbnb.design", catId: "cat-13", desc: "Artigos e estudos sobre sistemas visuais, tipografia e experiência do usuário." },
+      { id: 137, name: "Mailchimp Pattern Library", domain: "ux.mailchimp.com/patterns", catId: "cat-13", desc: "Exemplo clássico de tom de voz aliado a componentes claros." },
+      { id: 138, name: "GOV.UK Design System", domain: "design-system.service.gov.uk", catId: "cat-13", desc: "Referência mundial em acessibilidade, formulários e clareza." },
+      { id: 139, name: "USWDS", domain: "designsystem.digital.gov", catId: "cat-13", desc: "Padrões governamentais focados em usabilidade e contraste." },
+      { id: 140, name: "Nord Design System", domain: "nordhealth.design", catId: "cat-13", desc: "Sistema escandinavo limpo voltado para software B2B e saúde." },
+      { id: 141, name: "Decathlon Design System", domain: "decathlon.design", catId: "cat-13", desc: "Sistema de interface voltado para varejo esportivo e omnichannel." },
+      { id: 142, name: "Wise Design", domain: "wise.design", catId: "cat-13", desc: "Identidade visual, tipografia e padrões de produto financeiro global." },
+      { id: 143, name: "Stripe Docs & UI", domain: "docs.stripe.com", catId: "cat-13", desc: "Referência ouro em documentação técnica, navegação e clareza visual." },
+      { id: 144, name: "Linear Method & UI", domain: "linear.app/method", catId: "cat-13", desc: "Referência moderna de design minimalista, atalhos e tema escuro para SaaS." },
+      { id: 145, name: "Vercel Design (Geist)", domain: "vercel.com/geist", catId: "cat-13", desc: "Sistema visual minimalista monocromático para aplicações web modernas." },
+      { id: 146, name: "Raycast Manual & Store", domain: "raycast.com/store", catId: "cat-13", desc: "Excelente referência de micro-UI, ícones e densidade de informação." },
+      { id: 147, name: "Supabase UI & Docs", domain: "supabase.com/docs", catId: "cat-13", desc: "Padrão moderno de estética developer-first em tema escuro." },
+      { id: 148, name: "Resend Design", domain: "resend.com", catId: "cat-13", desc: "Referência atual de landing page técnica, animações sutis e tipografia." },
+      { id: 149, name: "Clerk Design", domain: "clerk.com", catId: "cat-13", desc: "Excelente referência de componentes de autenticação e páginas de produto SaaS." },
+      { id: 150, name: "PostHog Design & Handbook", domain: "posthog.com/handbook", catId: "cat-13", desc: "Exemplo único de estética ilustrada aplicada a SaaS técnico." },
+
+      // Categoria 14: Bibliotecas de Componentes UI e UI Kits (151–180)
+      { id: 151, name: "shadcn/ui", domain: "ui.shadcn.com", catId: "cat-14", desc: "A biblioteca mais influente de componentes acessíveis para React e Tailwind CSS." },
+      { id: 152, name: "Radix UI", domain: "radix-ui.com", catId: "cat-14", desc: "Primitivos de interface sem estilo e altamente acessíveis." },
+      { id: 153, name: "Headless UI", domain: "headlessui.com", catId: "cat-14", desc: "Componentes totalmente acessíveis criados pela equipe do Tailwind CSS." },
+      { id: 154, name: "Tailwind UI", domain: "tailwindui.com", catId: "cat-14", desc: "Biblioteca oficial de blocos e templates criados pelos autores do Tailwind." },
+      { id: 155, name: "Flowbite", domain: "flowbite.com", catId: "cat-14", desc: "Grande coleção de componentes open-source em Tailwind CSS." },
+      { id: 156, name: "DaisyUI", domain: "daisyui.com", catId: "cat-14", desc: "Biblioteca de componentes semânticos com dezenas de temas prontos para Tailwind." },
+      { id: 157, name: "Preline UI", domain: "preline.co", catId: "cat-14", desc: "Componentes open-source completos para dashboards e sites institucionais." },
+      { id: 158, name: "HyperUI", domain: "hyperui.dev", catId: "cat-14", desc: "Blocos gratuitos de marketing, e-commerce e aplicação em Tailwind CSS." },
+      { id: 159, name: "Meraki UI", domain: "merakiui.com", catId: "cat-14", desc: "Componentes responsivos com suporte a RTL e tema escuro." },
+      { id: 160, name: "Float UI", domain: "floatui.com", catId: "cat-14", desc: "Blocos modernos de UI e templates prontos para SaaS e startups." },
+      { id: 161, name: "Tailblocks", domain: "tailblocks.cc", catId: "cat-14", desc: "Blocos rápidos de layout (hero, pricing, footer) com seletor de cor ao vivo." },
+      { id: 162, name: "Park UI", domain: "park-ui.com", catId: "cat-14", desc: "Componentes construídos sobre Ark UI e Panda CSS / Tailwind." },
+      { id: 163, name: "Ark UI", domain: "ark-ui.com", catId: "cat-14", desc: "Biblioteca headless multi-framework (React, Vue, Solid)." },
+      { id: 164, name: "Mantine", domain: "mantine.dev", catId: "cat-14", desc: "Biblioteca completa com mais de 100 componentes e hooks para aplicações web." },
+      { id: 165, name: "Chakra UI", domain: "chakra-ui.com", catId: "cat-14", desc: "Sistema modular de componentes acessíveis e simples de customizar." },
+      { id: 166, name: "NextUI / HeroUI", domain: "heroui.com", catId: "cat-14", desc: "Componentes modernos com animações suaves baseados em Tailwind e Framer Motion." },
+      { id: 167, name: "Tremor", domain: "tremor.so", catId: "cat-14", desc: "Componentes especializados em dashboards, gráficos e métricas de negócios." },
+      { id: 168, name: "Recharts", domain: "recharts.org", catId: "cat-14", desc: "Galeria de exemplos de visualização de dados para interfaces analíticas." },
+      { id: 169, name: "Ant Design", domain: "ant.design", catId: "cat-14", desc: "Ecossistema vasto de componentes para sistemas corporativos e ERPs." },
+      { id: 170, name: "Naive UI", domain: "naiveui.com", catId: "cat-14", desc: "Biblioteca completa de componentes em Vue 3 com tema escuro nativo." },
+      { id: 171, name: "PrimeVue / PrimeReact", domain: "primereact.org", catId: "cat-14", desc: "Componentes ricos para aplicações corporativas e tabelas avançadas." },
+      { id: 172, name: "Shoelace", domain: "shoelace.style", catId: "cat-14", desc: "Biblioteca de Web Components agnóstica a frameworks." },
+      { id: 173, name: "Open Props", domain: "open-props.style", catId: "cat-14", desc: "Tokens CSS prontos para espaçamento, sombras, gradientes e animações." },
+      { id: 174, name: "Uiverse", domain: "uiverse.io", catId: "cat-14", desc: "Milhares de botões, cards, inputs e loaders feitos pela comunidade em CSS/Tailwind." },
+      { id: 175, name: "CSS Buttons", domain: "cssbuttons.io", catId: "cat-14", desc: "Coleção focada exclusivamente em estilos e microinterações de botões." },
+      { id: 176, name: "Animista", domain: "animista.net", catId: "cat-14", desc: "Gerador visual de animações CSS prontas para testar e copiar." },
+      { id: 177, name: "Hover.css", domain: "ianlunn.github.io/Hover", catId: "cat-14", desc: "Biblioteca clássica de efeitos de hover em CSS puro." },
+      { id: 178, name: "Magic CSS", domain: "minimamente.com/project/magic", catId: "cat-14", desc: "Coleção de efeitos de transição e entrada em CSS." },
+      { id: 179, name: "Skeleton Screen Generator", domain: "skeletonreact.com", catId: "cat-14", desc: "Referência e gerador de estados de carregamento (skeleton loaders)." },
+      { id: 180, name: "UI Ball Loaders", domain: "uiball.com/ldrs", catId: "cat-14", desc: "Micro-loaders minimalistas e leves para interfaces modernas." },
+
+      // Categoria 15: Tipografia, Pairings e Ferramentas de Fonte (181–205)
+      { id: 181, name: "Google Fonts", domain: "fonts.google.com", catId: "cat-15", desc: "Maior catálogo gratuito de fontes web com filtros por estilo e idioma." },
+      { id: 182, name: "Fontpair", domain: "fontpair.co", catId: "cat-15", desc: "Sugestões curadas de combinações de fontes do Google Fonts." },
+      { id: 183, name: "Typ.io", domain: "typ.io", catId: "cat-15", desc: "Mostra quais fontes sites reais estão usando lado a lado." },
+      { id: 184, name: "Type Scale", domain: "typescale.com", catId: "cat-15", desc: "Calculadora visual para definir hierarquia tipográfica proporcional." },
+      { id: 185, name: "Utopia Fluid Type", domain: "utopia.fyi", catId: "cat-15", desc: "Gerador de escalas tipográficas e espaçamentos fluidos com clamp()." },
+      { id: 186, name: "Font Squirrel", domain: "fontsquirrel.com", catId: "cat-15", desc: "Fontes gratuitas selecionadas para uso comercial e gerador de webfont." },
+      { id: 187, name: "Velvetyne Type Foundry", domain: "velvetyne.fr", catId: "cat-15", desc: "Fundição open-source de fontes experimentais e expressivas." },
+      { id: 188, name: "Open Foundry", domain: "open-foundry.com", catId: "cat-15", desc: "Plataforma visual para testar fontes open-source em layouts interativos." },
+      { id: 189, name: "Pangram Pangram", domain: "pangrampangram.com", catId: "cat-15", desc: "Fundição contemporânea muito usada em sites premiados no Awwwards." },
+      { id: 190, name: "Klim Type Foundry", domain: "klim.co.nz", catId: "cat-15", desc: "Referência mundial em tipografia editorial e corporativa." },
+      { id: 191, name: "Dinamo Typefaces", domain: "abcdinamo.com", catId: "cat-15", desc: "Fontes variáveis e experimentais de altíssimo nível visual." },
+      { id: 192, name: "Grilli Type", domain: "grillitype.com", catId: "cat-15", desc: "Fundição suíça com microsites interativos que são aulas de web design." },
+      { id: 193, name: "Commercial Type", domain: "commercialtype.com", catId: "cat-15", desc: "Tipografia editorial usada por grandes publicações digitais." },
+      { id: 194, name: "Monotype", domain: "monotype.com", catId: "cat-15", desc: "Acervo histórico e tendências anuais de tipografia digital." },
+      { id: 195, name: "WhatTheFont", domain: "myfonts.com/pages/whatthefont", catId: "cat-15", desc: "Identificador de fontes a partir de capturas de tela de sites." },
+      { id: 196, name: "Fontjoy", domain: "fontjoy.com", catId: "cat-15", desc: "Gerador de pareamento de fontes baseado em contraste e equilíbrio visual." },
+      { id: 197, name: "Modular Scale", domain: "modularscale.com", catId: "cat-15", desc: "Ferramenta matemática para proporções tipográficas harmônicas." },
+      { id: 198, name: "Better Web Type", domain: "betterwebtype.com", catId: "cat-15", desc: "Guia prático e exemplos de legibilidade, entrelinha e largura de coluna." },
+      { id: 199, name: "Practical Typography", domain: "practicaltypography.com", catId: "cat-15", desc: "Manual completo de regras tipográficas aplicadas à tela." },
+      { id: 200, name: "Variable Fonts", domain: "v-fonts.com", catId: "cat-15", desc: "Catálogo interativo para testar eixos de fontes variáveis em tempo real." },
+      { id: 201, name: "Collletttivo", domain: "collletttivo.it", catId: "cat-15", desc: "Coletivo italiano que distribui fontes contemporâneas gratuitas." },
+      { id: 202, name: "Use & Modify", domain: "usemodify.com", catId: "cat-15", desc: "Curadoria de fontes open-source elegantes e pouco batidas." },
+      { id: 203, name: "Badass Libre Fonts", domain: "design-research.be/by-womxn", catId: "cat-15", desc: "Catálogo de fontes livres criadas por designers mulheres." },
+      { id: 204, name: "TDC (Type Directors Club)", domain: "tdc.org", catId: "cat-15", desc: "Premiações anuais do que há de melhor em tipografia no mundo." },
+      { id: 205, name: "Ilovetypography", domain: "ilovetypography.com", catId: "cat-15", desc: "Blog e vitrine histórica sobre design de tipos e letras." },
+
+      // Categoria 16: Ícones, Ilustrações e Assets Visuais (206–230)
+      { id: 206, name: "Lucide Icons", domain: "lucide.dev", catId: "cat-16", desc: "Conjunto limpo e consistente de ícones open-source (padrão moderno em SaaS)." },
+      { id: 207, name: "Phosphor Icons", domain: "phosphoricons.com", catId: "cat-16", desc: "Família flexível com 6 pesos diferentes (thin, light, regular, bold, fill, duotone)." },
+      { id: 208, name: "Heroicons", domain: "heroicons.com", catId: "cat-16", desc: "Ícones oficiais feitos pelos criadores do Tailwind CSS." },
+      { id: 209, name: "Tabler Icons", domain: "tabler.io/icons", catId: "cat-16", desc: "Mais de 5.000 ícones gratuitos com traço consistente para dashboards." },
+      { id: 210, name: "Radix Icons", domain: "radix-ui.com/icons", catId: "cat-16", desc: "Ícones nítidos de 15x15px ideais para interfaces densas." },
+      { id: 211, name: "Iconoir", domain: "iconoir.com", catId: "cat-16", desc: "Biblioteca open-source com mais de 1.500 ícones minimalistas." },
+      { id: 212, name: "Remix Icon", domain: "remixicon.com", catId: "cat-16", desc: "Sistema neutro de ícones em versões outline e filled." },
+      { id: 213, name: "Feather Icons", domain: "feathericons.com", catId: "cat-16", desc: "Ícones minimalistas construídos em grid de 24x24." },
+      { id: 214, name: "Solar Icons", domain: "solar-icons.vercel.app", catId: "cat-16", desc: "Conjunto moderno com variações duotone e broken line." },
+      { id: 215, name: "MingCute Icon", domain: "mingcute.com", catId: "cat-16", desc: "Ícones limpos voltados para aplicativos web e mobile." },
+      { id: 216, name: "Simple Icons", domain: "simpleicons.org", catId: "cat-16", desc: "Ícones SVG de milhares de marcas e tecnologias populares." },
+      { id: 217, name: "unDraw", domain: "undraw.co", catId: "cat-16", desc: "Ilustrações vetoriais open-source com seletor de cor principal ao vivo." },
+      { id: 218, name: "Storyset", domain: "storyset.com", catId: "cat-16", desc: "Ilustrações customizáveis e animáveis para onboarding e estados vazios." },
+      { id: 219, name: "Humaaans", domain: "humaaans.com", catId: "cat-16", desc: "Biblioteca modular de ilustrações de pessoas para montar cenas." },
+      { id: 220, name: "Open Peeps", domain: "openpeeps.com", catId: "cat-16", desc: "Ilustrações desenhadas à mão combináveis para avatares e produtos." },
+      { id: 221, name: "Blush Design", domain: "blush.design", catId: "cat-16", desc: "Coleções de ilustrações de artistas para personalizar diretamente no navegador." },
+      { id: 222, name: "IRA Design", domain: "iradesign.io", catId: "cat-16", desc: "Ilustrações com gradientes suaves para landing pages de tecnologia." },
+      { id: 223, name: "DrawKit", domain: "drawkit.com", catId: "cat-16", desc: "Pacotes de ilustrações vetoriais e 3D organizados por nicho." },
+      { id: 224, name: "ManyPixels Gallery", domain: "manypixels.co/gallery", catId: "cat-16", desc: "Ilustrações gratuitas livres de royalties para blogs e SaaS." },
+      { id: 225, name: "Absurd Design", domain: "absurd.design", catId: "cat-16", desc: "Ilustrações surrealistas em preto e branco para sites criativos." },
+      { id: 226, name: "Ouch by Icons8", domain: "icons8.com/illustrations", catId: "cat-16", desc: "Biblioteca vasta de estilos variados de ilustração vetorial e 3D." },
+      { id: 227, name: "Shapefest", domain: "shapefest.com", catId: "cat-16", desc: "Biblioteca massiva de formas e texturas 3D em alta resolução." },
+      { id: 228, name: "3Dicons", domain: "3dicons.co", catId: "cat-16", desc: "Ícones 3D open-source renderizados em vários ângulos e materiais." },
+      { id: 229, name: "Haikei", domain: "app.haikei.app", catId: "cat-16", desc: "Gerador de formas SVG orgânicas, ondas, blobs e gradientes para fundos." },
+      { id: 230, name: "BGJar", domain: "bgjar.com", catId: "cat-16", desc: "Gerador gratuito de fundos SVG geométricos e padrões para seções web." },
+
+      // Categoria 17: Cores, Gradientes, Templates e Inspiração de Copy/UX (231–250)
+      { id: 231, name: "Adobe Color", domain: "color.adobe.com", catId: "cat-17", desc: "Roda cromática profissional, extração de paletas e verificação de contraste." },
+      { id: 232, name: "Color Hunt", domain: "colorhunt.co", catId: "cat-17", desc: "Paletas de 4 cores curadas diariamente pela comunidade de design." },
+      { id: 233, name: "Paletton", domain: "paletton.com", catId: "cat-17", desc: "Ferramenta clássica para construir esquemas monocromáticos, tríades e complementares." },
+      { id: 234, name: "Khroma", domain: "khroma.co", catId: "cat-17", desc: "Gerador de combinações de cores treinado nas suas preferências visuais." },
+      { id: 235, name: "Huemint", domain: "huemint.com", catId: "cat-17", desc: "Usa machine learning para aplicar paletas diretamente em mockups de sites e marcas." },
+      { id: 236, name: "Culrs", domain: "culrs.com", catId: "cat-17", desc: "Paletas organizadas por harmonia cromática e função na interface." },
+      { id: 237, name: "UI Gradients", domain: "uigradients.com", catId: "cat-17", desc: "Coleção curada de gradientes suaves prontos em CSS." },
+      { id: 238, name: "Mesh Gradient", domain: "meshgradient.in", catId: "cat-17", desc: "Galeria e gerador de gradientes malhados modernos." },
+      { id: 239, name: "WebGradients", domain: "webgradients.com", catId: "cat-17", desc: "180 gradientes lineares prontos para fundos e cards." },
+      { id: 240, name: "Contrast Ratio (Lea Verou)", domain: "contrast-ratio.com", catId: "cat-17", desc: "Verificador rápido de acessibilidade WCAG entre cor de texto e fundo." },
+      { id: 241, name: "WhoCanUse", domain: "whocanuse.com", catId: "cat-17", desc: "Simula como diferentes deficiências visuais enxergam o contraste da sua paleta." },
+      { id: 242, name: "HTML5 UP", domain: "html5up.net", catId: "cat-17", desc: "Templates responsivos em HTML5/CSS3 limpos para estudar estrutura e grid." },
+      { id: 243, name: "Cruip", domain: "cruip.com", catId: "cat-17", desc: "Templates modernos de landing pages SaaS em Tailwind, React e Vue." },
+      { id: 244, name: "Astro Themes", domain: "astro.build/themes", catId: "cat-17", desc: "Vitrine de dezenas de templates rápidos de blogs, portfólios e SaaS." },
+      { id: 245, name: "Next.js Templates", domain: "vercel.com/templates", catId: "cat-17", desc: "Galeria oficial de starters modernos de e-commerce, SaaS e AI." },
+      { id: 246, name: "Marketing Examples", domain: "marketingexamples.com", catId: "cat-17", desc: "Casos reais de copy, posicionamento e estrutura de landing pages." },
+      { id: 247, name: "Swipe File", domain: "swipefile.com", catId: "cat-17", desc: "Arquivo de anúncios, páginas de captura e estratégias visuais de conversão." },
+      { id: 248, name: "Good Email Copy", domain: "goodemailcopy.com", catId: "cat-17", desc: "Referência para design e texto de e-mails transacionais e onboarding." },
+      { id: 249, name: "Really Good Emails", domain: "reallygoodemails.com", catId: "cat-17", desc: "Maior galeria de design e código HTML de e-mails de produtos digitais." },
+      { id: 250, name: "Microcopy.me", domain: "microcopy.me", catId: "cat-17", desc: "Inspiração para pequenos textos de interface (botões, erros, placeholders e estados vazios)." }
+    ];
+
+    const BADGE_COLORS = {
+      indigo:  "bg-indigo-50 text-indigo-700 border-indigo-200/80 dark:bg-indigo-950/50 dark:text-indigo-300 dark:border-indigo-800/50",
+      emerald: "bg-emerald-50 text-emerald-700 border-emerald-200/80 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800/50",
+      sky:     "bg-sky-50 text-sky-700 border-sky-200/80 dark:bg-sky-950/50 dark:text-sky-300 dark:border-sky-800/50",
+      violet:  "bg-violet-50 text-violet-700 border-violet-200/80 dark:bg-violet-950/50 dark:text-violet-300 dark:border-violet-800/50",
+      amber:   "bg-amber-50 text-amber-700 border-amber-200/80 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800/50",
+      rose:    "bg-rose-50 text-rose-700 border-rose-200/80 dark:bg-rose-950/50 dark:text-rose-300 dark:border-rose-800/50",
+      teal:    "bg-teal-50 text-teal-700 border-teal-200/80 dark:bg-teal-950/50 dark:text-teal-300 dark:border-teal-800/50",
+      cyan:    "bg-cyan-50 text-cyan-700 border-cyan-200/80 dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800/50",
+      blue:    "bg-blue-50 text-blue-700 border-blue-200/80 dark:bg-blue-950/50 dark:text-blue-300 dark:border-blue-800/50",
+      fuchsia: "bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200/80 dark:bg-fuchsia-950/50 dark:text-fuchsia-300 dark:border-fuchsia-800/50",
+      orange:  "bg-orange-50 text-orange-700 border-orange-200/80 dark:bg-orange-950/50 dark:text-orange-300 dark:border-orange-800/50"
+    };
+
+    // =========================================================================
+    // 3. ESTADO E PERSISTÊNCIA
+    // =========================================================================
+    const STORAGE_FAVS_KEY = "design_index_250_favorites_v1";
+    const STORAGE_THEME_KEY = "design_index_250_theme_v1";
+    const STORAGE_VIEW_KEY = "design_index_250_view_v1";
+
+    let state = {
+      searchQuery: "",
+      selectedCategory: "all",
+      onlyFavorites: false,
+      viewMode: localStorage.getItem(STORAGE_VIEW_KEY) || "grid",
+      favorites: new Set(JSON.parse(localStorage.getItem(STORAGE_FAVS_KEY) || "[]")),
+      currentRandomSite: null
+    };
+
+    const categoryMap = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
+
+    // =========================================================================
+    // 4. ELEMENTOS DO DOM
+    // =========================================================================
+    const dom = {
+      sidebar: document.getElementById("sidebar"),
+      mobileBackdrop: document.getElementById("mobile-backdrop"),
+      btnOpenSidebar: document.getElementById("btn-open-sidebar"),
+      btnCloseSidebar: document.getElementById("btn-close-sidebar"),
+      navAll: document.getElementById("nav-all"),
+      navFavorites: document.getElementById("nav-favorites"),
+      sidebarFavIcon: document.getElementById("sidebar-fav-icon"),
+      sidebarFavBadge: document.getElementById("sidebar-fav-badge"),
+      sidebarCategories: document.getElementById("sidebar-categories"),
+      exportCountLabel: document.getElementById("export-count-label"),
+      btnExportJson: document.getElementById("btn-export-json"),
+      btnExportCsv: document.getElementById("btn-export-csv"),
+      searchInput: document.getElementById("search-input"),
+      btnClearSearch: document.getElementById("btn-clear-search"),
+      btnRandomSite: document.getElementById("btn-random-site"),
+      btnThemeToggle: document.getElementById("btn-theme-toggle"),
+      filteredCount: document.getElementById("filtered-count"),
+      totalCount: document.getElementById("total-count"),
+      currentCategoryChip: document.getElementById("current-category-chip"),
+      btnFavoritesQuick: document.getElementById("btn-favorites-quick"),
+      quickFavIcon: document.getElementById("quick-fav-icon"),
+      quickFavBadge: document.getElementById("quick-fav-badge"),
+      btnViewGrid: document.getElementById("btn-view-grid"),
+      btnViewList: document.getElementById("btn-view-list"),
+      activeFilterBanner: document.getElementById("active-filter-banner"),
+      activeFilterText: document.getElementById("active-filter-text"),
+      btnResetAll: document.getElementById("btn-reset-all"),
+      sitesContainer: document.getElementById("sites-container"),
+      emptyState: document.getElementById("empty-state"),
+      btnEmptyReset: document.getElementById("btn-empty-reset"),
+      randomModal: document.getElementById("random-modal"),
+      randomModalContent: document.getElementById("random-modal-content"),
+      btnCloseRandom: document.getElementById("btn-close-random"),
+      btnRollAgain: document.getElementById("btn-roll-again"),
+      randomVisitLink: document.getElementById("random-visit-link"),
+      toast: document.getElementById("toast"),
+      toastMessage: document.getElementById("toast-message"),
+      btnBackToTop: document.getElementById("btn-back-to-top")
+    };
+
+    // =========================================================================
+    // 5. UTILITÁRIOS
+    // =========================================================================
+    function normalizeText(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function formatId(num) {
+      return String(num).padStart(3, "0");
+    }
+
+    function getRootDomain(domain) {
+      return domain.split("/")[0];
+    }
+
+    function getFaviconUrl(domain) {
+      const root = getRootDomain(domain);
+      return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(root)}&sz=64`;
+    }
+
+    // Fallback elegante caso o favicon não carregue
+    window.handleFaviconError = function(imgEl, siteName) {
+      const initial = (siteName || "?").charAt(0).toUpperCase();
+      const wrapper = document.createElement("span");
+      wrapper.className = "w-5 h-5 rounded-md bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-mono text-[11px] font-bold inline-flex items-center justify-center shrink-0";
+      wrapper.textContent = initial;
+      if (imgEl.parentNode) {
+        imgEl.parentNode.replaceChild(wrapper, imgEl);
+      }
+    };
+
+    let toastTimer = null;
+    function showToast(msg) {
+      dom.toastMessage.textContent = msg;
+      dom.toast.classList.remove("opacity-0", "translate-y-2");
+      dom.toast.classList.add("opacity-100", "translate-y-0");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        dom.toast.classList.add("opacity-0", "translate-y-2");
+        dom.toast.classList.remove("opacity-100", "translate-y-0");
+      }, 2200);
+    }
+
+    function copyToClipboard(text, siteName) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        showToast(`Link de ${siteName} copiado!`);
+      } catch (err) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(() => showToast(`Link de ${siteName} copiado!`));
+        }
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+
+    // Drawer Mobile
+    function openSidebar() {
+      dom.sidebar.classList.remove("-translate-x-full");
+      dom.mobileBackdrop.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden", "lg:overflow-auto");
+    }
+
+    function closeSidebar() {
+      dom.sidebar.classList.add("-translate-x-full");
+      dom.mobileBackdrop.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden", "lg:overflow-auto");
+    }
+
+    // Tema Claro / Escuro
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+      document.documentElement.classList.toggle("dark", isDark);
+      localStorage.setItem(STORAGE_THEME_KEY, theme);
+
+      const sunSvg = `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>`;
+      const moonSvg = `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" /></svg>`;
+
+      dom.btnThemeToggle.innerHTML = isDark ? sunSvg : moonSvg;
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem(STORAGE_THEME_KEY);
+      if (saved) {
+        applyTheme(saved);
+      } else {
+        applyTheme("dark");
+      }
+    }
+
+    // Favoritos
+    function saveFavorites() {
+      localStorage.setItem(STORAGE_FAVS_KEY, JSON.stringify([...state.favorites]));
+      updateFavoritesUI();
+    }
+
+    function toggleFavorite(id) {
+      if (state.favorites.has(id)) {
+        state.favorites.delete(id);
+        showToast("Removido dos favoritos");
+      } else {
+        state.favorites.add(id);
+        showToast("Adicionado aos favoritos");
+      }
+      saveFavorites();
+      renderSites();
+      if (!dom.randomModal.classList.contains("hidden") && state.currentRandomSite && state.currentRandomSite.id === id) {
+        renderRandomModalBody(state.currentRandomSite);
+      }
+    }
+
+    // =========================================================================
+    // 6. SIDEBAR E NAVEGAÇÃO POR CATEGORIAS
+    // =========================================================================
+    function renderSidebar() {
+      const countsByCat = {};
+      SITES_DATA.forEach(s => {
+        countsByCat[s.catId] = (countsByCat[s.catId] || 0) + 1;
+      });
+
+      // Destaque dos botões "Todos" e "Favoritos" na sidebar
+      const isAllActive = !state.onlyFavorites && state.selectedCategory === "all";
+      const isFavActive = state.onlyFavorites;
+
+      const activeNavClass = ["bg-indigo-50", "dark:bg-indigo-950/50", "text-indigo-700", "dark:text-indigo-300"];
+      const inactiveNavClass = ["text-zinc-600", "dark:text-zinc-400", "hover:bg-zinc-100", "dark:hover:bg-zinc-900", "hover:text-zinc-900", "dark:hover:text-zinc-200"];
+
+      dom.navAll.classList.remove(...activeNavClass, ...inactiveNavClass);
+      dom.navAll.classList.add(...(isAllActive ? activeNavClass : inactiveNavClass));
+
+      dom.navFavorites.classList.remove(...activeNavClass, ...inactiveNavClass);
+      dom.navFavorites.classList.add(...(isFavActive ? activeNavClass : inactiveNavClass));
+
+      // Renderiza as 17 categorias
+      dom.sidebarCategories.innerHTML = CATEGORIES.map(cat => {
+        const active = !state.onlyFavorites && state.selectedCategory === cat.id;
+        return `
+          <button
+            type="button"
+            data-cat="${cat.id}"
+            title="${cat.num}. ${cat.name}"
+            class="sidebar-cat-btn w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs transition cursor-pointer ${
+              active
+                ? "bg-indigo-600 text-white font-medium shadow-xs shadow-indigo-500/20"
+                : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-zinc-200"
+            }"
+          >
+            <span class="flex items-center gap-2 min-w-0">
+              <span class="font-mono text-[11px] opacity-70 shrink-0">${String(cat.num).padStart(2, "0")}.</span>
+              <span class="truncate">${cat.short}</span>
+            </span>
+            <span class="font-mono text-[11px] px-1.5 py-0.2 rounded-md shrink-0 ${
+              active
+                ? "bg-white/20 text-white"
+                : "bg-zinc-100 dark:bg-zinc-800/90 text-zinc-500 dark:text-zinc-400"
+            }">
+              ${countsByCat[cat.id] || 0}
+            </span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function updateFavoritesUI() {
+      const count = state.favorites.size;
+      dom.sidebarFavBadge.textContent = count;
+      dom.quickFavBadge.textContent = count;
+
+      if (state.onlyFavorites) {
+        dom.btnFavoritesQuick.classList.add("border-amber-400", "bg-amber-50/80", "dark:bg-amber-950/30", "dark:border-amber-500/60", "text-amber-800", "dark:text-amber-300");
+        dom.quickFavIcon.classList.remove("text-zinc-400");
+        dom.quickFavIcon.classList.add("text-amber-500", "fill-amber-500");
+        dom.sidebarFavIcon.classList.add("fill-amber-500");
+      } else {
+        dom.btnFavoritesQuick.classList.remove("border-amber-400", "bg-amber-50/80", "dark:bg-amber-950/30", "dark:border-amber-500/60", "text-amber-800", "dark:text-amber-300");
+        dom.quickFavIcon.classList.add("text-zinc-400");
+        dom.quickFavIcon.classList.remove("text-amber-500", "fill-amber-500");
+        dom.sidebarFavIcon.classList.remove("fill-amber-500");
+      }
+    }
+
+    function updateViewButtonsUI() {
+      const activeClasses = ["bg-white", "dark:bg-zinc-800", "text-indigo-600", "dark:text-indigo-400", "shadow-xs"];
+      const inactiveClasses = ["text-zinc-500", "dark:text-zinc-400", "hover:text-zinc-900", "dark:hover:text-white"];
+
+      if (state.viewMode === "grid") {
+        dom.btnViewGrid.classList.add(...activeClasses);
+        dom.btnViewGrid.classList.remove(...inactiveClasses);
+        dom.btnViewList.classList.remove(...activeClasses);
+        dom.btnViewList.classList.add(...inactiveClasses);
+        dom.sitesContainer.className = "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4";
+      } else {
+        dom.btnViewList.classList.add(...activeClasses);
+        dom.btnViewList.classList.remove(...inactiveClasses);
+        dom.btnViewGrid.classList.remove(...activeClasses);
+        dom.btnViewGrid.classList.add(...inactiveClasses);
+        dom.sitesContainer.className = "flex flex-col gap-2";
+      }
+    }
+
+    // =========================================================================
+    // 7. FILTRAGEM E RENDERIZAÇÃO DOS 250 SITES
+    // =========================================================================
+    function getFilteredSites() {
+      const q = normalizeText(state.searchQuery.trim());
+
+      return SITES_DATA.filter(site => {
+        if (state.onlyFavorites && !state.favorites.has(site.id)) return false;
+        if (!state.onlyFavorites && state.selectedCategory !== "all" && site.catId !== state.selectedCategory) return false;
+
+        if (q) {
+          const cat = categoryMap[site.catId];
+          const haystack = normalizeText(
+            `#${site.id} #${formatId(site.id)} ${site.id} ${site.name} ${site.domain} ${site.desc} ${cat.name} ${cat.short}`
+          );
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    function updateHeaderStatus(filteredCount) {
+      dom.filteredCount.textContent = filteredCount;
+      dom.totalCount.textContent = SITES_DATA.length;
+      dom.exportCountLabel.textContent = filteredCount;
+
+      if (state.onlyFavorites) {
+        dom.currentCategoryChip.textContent = "Visualizando Favoritos";
+      } else if (state.selectedCategory !== "all") {
+        const cat = categoryMap[state.selectedCategory];
+        dom.currentCategoryChip.textContent = `Cat. ${cat.num}: ${cat.name}`;
+      } else {
+        dom.currentCategoryChip.textContent = "Todas as 17 categorias";
+      }
+
+      const hasFilters = state.searchQuery.trim() !== "" || state.selectedCategory !== "all" || state.onlyFavorites;
+      if (!hasFilters) {
+        dom.activeFilterBanner.classList.add("hidden");
+      } else {
+        const parts = [];
+        if (state.onlyFavorites) parts.push("Apenas favoritos");
+        if (!state.onlyFavorites && state.selectedCategory !== "all") {
+          const c = categoryMap[state.selectedCategory];
+          parts.push(`Categoria ${c.num}: ${c.short}`);
+        }
+        if (state.searchQuery.trim() !== "") parts.push(`Busca: "${state.searchQuery.trim()}"`);
+
+        dom.activeFilterText.textContent = parts.join(" • ");
+        dom.activeFilterBanner.classList.remove("hidden");
+      }
+    }
+
+    function renderSites() {
+      const filtered = getFilteredSites();
+      updateHeaderStatus(filtered.length);
+
+      if (filtered.length === 0) {
+        dom.sitesContainer.innerHTML = "";
+        dom.emptyState.classList.remove("hidden");
+        return;
+      }
+
+      dom.emptyState.classList.add("hidden");
+      const isGrid = state.viewMode === "grid";
+
+      const html = filtered.map(site => {
+        const cat = categoryMap[site.catId];
+        const badgeStyle = BADGE_COLORS[cat.color] || BADGE_COLORS.indigo;
+        const isFav = state.favorites.has(site.id);
+        const fullUrl = `https://${site.domain}`;
+        const numStr = formatId(site.id);
+        const faviconSrc = getFaviconUrl(site.domain);
+
+        if (isGrid) {
+          return `
+            <article class="animate-card group flex flex-col justify-between rounded-2xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-zinc-900/70 p-4 sm:p-5 hover:border-indigo-400/70 dark:hover:border-indigo-500/50 hover:shadow-md hover:shadow-zinc-900/5 dark:hover:shadow-black/30 transition-all duration-200">
+              <div>
+                <!-- Topo: Número + Categoria + Favorito -->
+                <div class="flex items-start justify-between gap-2 mb-3">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 font-mono text-xs font-medium">
+                      #${numStr}
+                    </span>
+                    <button
+                      type="button"
+                      data-action="filter-cat"
+                      data-cat="${cat.id}"
+                      title="Filtrar por: ${cat.name}"
+                      class="inline-flex items-center px-2 py-0.5 rounded-lg border text-[11px] font-medium hover:opacity-80 transition cursor-pointer ${badgeStyle}"
+                    >
+                      ${cat.short}
+                    </button>
+                  </div>
+
+                  <button
+                    type="button"
+                    data-action="favorite"
+                    data-id="${site.id}"
+                    aria-label="${isFav ? 'Remover dos favoritos' : 'Salvar nos favoritos'}"
+                    title="${isFav ? 'Remover dos favoritos' : 'Salvar nos favoritos'}"
+                    class="p-1.5 -mr-1 -mt-1 rounded-xl text-zinc-400 hover:text-amber-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer shrink-0"
+                  >
+                    <svg class="w-4 h-4 ${isFav ? 'text-amber-500 fill-amber-500' : ''}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Favicon + Nome do Site -->
+                <div class="flex items-center gap-2.5">
+                  <img
+                    src="${faviconSrc}"
+                    alt=""
+                    loading="lazy"
+                    onerror="handleFaviconError(this, '${site.name.replace(/'/g, "\\'")}')"
+                    class="w-5 h-5 rounded-md object-contain bg-zinc-100 dark:bg-zinc-800 p-0.5 shrink-0"
+                  />
+                  <h2 class="text-base font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors truncate">
+                    <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="focus:outline-none">
+                      ${site.name}
+                    </a>
+                  </h2>
+                </div>
+
+                <!-- Descrição -->
+                <p class="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  ${site.desc}
+                </p>
+              </div>
+
+              <!-- Rodapé: Domínio + Botão Copiar -->
+              <div class="mt-4 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between gap-2">
+                <a
+                  href="${fullUrl}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Abrir ${fullUrl}"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 truncate transition-colors"
+                >
+                  <span class="truncate">${site.domain}</span>
+                  <svg class="w-3.5 h-3.5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                </a>
+
+                <button
+                  type="button"
+                  data-action="copy"
+                  data-url="${fullUrl}"
+                  data-name="${site.name}"
+                  title="Copiar URL"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white bg-zinc-100/80 dark:bg-zinc-800/80 hover:bg-zinc-200/80 dark:hover:bg-zinc-700/80 transition shrink-0 cursor-pointer"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+                  </svg>
+                  <span>Copiar</span>
+                </button>
+              </div>
+            </article>
+          `;
+        } else {
+          // Modo Lista Compacta
+          return `
+            <article class="animate-card group flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-white dark:bg-zinc-900/70 px-4 py-2.5 hover:border-indigo-400/70 dark:hover:border-indigo-500/50 transition-all">
+              <div class="flex items-start sm:items-center gap-3 min-w-0">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 font-mono text-xs font-medium shrink-0 mt-0.5 sm:mt-0">
+                  #${numStr}
+                </span>
+                <img
+                  src="${faviconSrc}"
+                  alt=""
+                  loading="lazy"
+                  onerror="handleFaviconError(this, '${site.name.replace(/'/g, "\\'")}')"
+                  class="w-4 h-4 rounded object-contain bg-zinc-100 dark:bg-zinc-800 shrink-0 mt-1 sm:mt-0"
+                />
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="font-semibold text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                      ${site.name}
+                    </a>
+                    <button
+                      type="button"
+                      data-action="filter-cat"
+                      data-cat="${cat.id}"
+                      class="inline-flex items-center px-2 py-0.5 rounded-md border text-[10px] font-medium hover:opacity-80 transition cursor-pointer ${badgeStyle}"
+                    >
+                      ${cat.short}
+                    </button>
+                  </div>
+                  <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-0.5 line-clamp-2 sm:line-clamp-1">
+                    ${site.desc}
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between sm:justify-end gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-zinc-100 dark:border-zinc-800 shrink-0">
+                <a
+                  href="${fullUrl}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 text-xs font-mono text-zinc-500 dark:text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                >
+                  <span>${site.domain}</span>
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                </a>
+
+                <div class="flex items-center gap-1">
+                  <button
+                    type="button"
+                    data-action="copy"
+                    data-url="${fullUrl}"
+                    data-name="${site.name}"
+                    title="Copiar URL"
+                    class="p-1.5 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer"
+                  >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    data-action="favorite"
+                    data-id="${site.id}"
+                    title="${isFav ? 'Remover dos favoritos' : 'Salvar nos favoritos'}"
+                    class="p-1.5 rounded-lg text-zinc-400 hover:text-amber-500 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer"
+                  >
+                    <svg class="w-4 h-4 ${isFav ? 'text-amber-500 fill-amber-500' : ''}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }
+      }).join("");
+
+      dom.sitesContainer.innerHTML = html;
+    }
+
+    // =========================================================================
+    // 8. MODAL DE SITE ALEATÓRIO
+    // =========================================================================
+    function renderRandomModalBody(site) {
+      const cat = categoryMap[site.catId];
+      const badgeStyle = BADGE_COLORS[cat.color] || BADGE_COLORS.indigo;
+      const isFav = state.favorites.has(site.id);
+      const fullUrl = `https://${site.domain}`;
+
+      dom.randomVisitLink.href = fullUrl;
+      dom.randomModalContent.innerHTML = `
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2 py-0.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 font-mono text-xs font-medium">
+              #${formatId(site.id)}
+            </span>
+            <span class="px-2.5 py-0.5 rounded-lg border text-xs font-medium ${badgeStyle}">
+              Cat. ${cat.num}: ${cat.name}
+            </span>
+          </div>
+          <button
+            type="button"
+            onclick="toggleFavorite(${site.id})"
+            class="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer"
+            title="${isFav ? 'Remover dos favoritos' : 'Favoritar'}"
+          >
+            <svg class="w-4 h-4 ${isFav ? 'text-amber-500 fill-amber-500' : 'text-zinc-400'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex items-center gap-3 mt-2">
+          <img
+            src="${getFaviconUrl(site.domain)}"
+            alt=""
+            onerror="handleFaviconError(this, '${site.name.replace(/'/g, "\\'")}')"
+            class="w-7 h-7 rounded-lg bg-zinc-100 dark:bg-zinc-800 p-1 shrink-0"
+          />
+          <div>
+            <h3 class="text-xl font-bold text-zinc-900 dark:text-white">${site.name}</h3>
+            <p class="text-xs font-mono text-indigo-600 dark:text-indigo-400">${site.domain}</p>
+          </div>
+        </div>
+
+        <p class="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-300">
+          ${site.desc}
+        </p>
+      `;
+    }
+
+    function openRandomSite() {
+      const pool = getFilteredSites();
+      const source = pool.length > 0 ? pool : SITES_DATA;
+      let picked = source[Math.floor(Math.random() * source.length)];
+
+      if (source.length > 1 && state.currentRandomSite && picked.id === state.currentRandomSite.id) {
+        picked = source[(source.indexOf(picked) + 1) % source.length];
+      }
+
+      state.currentRandomSite = picked;
+      renderRandomModalBody(picked);
+      dom.randomModal.classList.remove("hidden");
+      dom.randomModal.classList.add("flex");
+    }
+
+    function closeRandomModal() {
+      dom.randomModal.classList.add("hidden");
+      dom.randomModal.classList.remove("flex");
+    }
+
+    // =========================================================================
+    // 9. EXPORTAÇÃO (JSON E CSV)
+    // =========================================================================
+    function downloadFile(content, filename, mimeType) {
+      const blob = new Blob([content], { type: mimeType });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    function exportData(format) {
+      const items = getFilteredSites();
+      if (items.length === 0) {
+        showToast("Nenhum item para exportar.");
+        return;
+      }
+
+      const enriched = items.map(s => ({
+        numero: s.id,
+        nome: s.name,
+        dominio: s.domain,
+        url: `https://${s.domain}`,
+        categoria_numero: categoryMap[s.catId].num,
+        categoria: categoryMap[s.catId].name,
+        descricao: s.desc,
+        favorito: state.favorites.has(s.id)
+      }));
+
+      if (format === "json") {
+        downloadFile(JSON.stringify(enriched, null, 2), `design-index-${items.length}-sites.json`, "application/json;charset=utf-8");
+        showToast(`JSON exportado (${items.length} sites)!`);
+      } else {
+        const headers = ["Numero", "Nome", "Dominio", "URL", "Categoria", "Descricao", "Favorito"];
+        const escapeCsv = val => `"${String(val).replace(/"/g, '""')}"`;
+        const rows = enriched.map(r => [
+          r.numero,
+          escapeCsv(r.nome),
+          escapeCsv(r.dominio),
+          escapeCsv(r.url),
+          escapeCsv(r.categoria),
+          escapeCsv(r.descricao),
+          r.favorito ? "Sim" : "Nao"
+        ].join(","));
+        const csvContent = "\uFEFF" + [headers.join(","), ...rows].join("\n");
+        downloadFile(csvContent, `design-index-${items.length}-sites.csv`, "text/csv;charset=utf-8");
+        showToast(`CSV exportado (${items.length} sites)!`);
+      }
+    }
+
+    // =========================================================================
+    // 10. EVENTOS E INICIALIZAÇÃO
+    // =========================================================================
+    function resetAllFilters() {
+      state.searchQuery = "";
+      state.selectedCategory = "all";
+      state.onlyFavorites = false;
+      dom.searchInput.value = "";
+      dom.btnClearSearch.classList.add("hidden");
+      updateFavoritesUI();
+      renderSidebar();
+      renderSites();
+    }
+
+    // Drawer mobile
+    dom.btnOpenSidebar.addEventListener("click", openSidebar);
+    dom.btnCloseSidebar.addEventListener("click", closeSidebar);
+    dom.mobileBackdrop.addEventListener("click", closeSidebar);
+
+    // Atalhos Sidebar (Todos e Favoritos)
+    dom.navAll.addEventListener("click", () => {
+      state.onlyFavorites = false;
+      state.selectedCategory = "all";
+      updateFavoritesUI();
+      renderSidebar();
+      renderSites();
+      closeSidebar();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    dom.navFavorites.addEventListener("click", () => {
+      state.onlyFavorites = true;
+      updateFavoritesUI();
+      renderSidebar();
+      renderSites();
+      closeSidebar();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Seleção de Categoria na Sidebar
+    dom.sidebarCategories.addEventListener("click", (e) => {
+      const btn = e.target.closest(".sidebar-cat-btn");
+      if (!btn) return;
+      state.onlyFavorites = false;
+      state.selectedCategory = btn.dataset.cat;
+      updateFavoritesUI();
+      renderSidebar();
+      renderSites();
+      closeSidebar();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Busca em tempo real
+    dom.searchInput.addEventListener("input", (e) => {
+      state.searchQuery = e.target.value;
+      dom.btnClearSearch.classList.toggle("hidden", state.searchQuery.length === 0);
+      renderSites();
+    });
+
+    dom.btnClearSearch.addEventListener("click", () => {
+      state.searchQuery = "";
+      dom.searchInput.value = "";
+      dom.btnClearSearch.classList.add("hidden");
+      dom.searchInput.focus();
+      renderSites();
+    });
+
+    // Atalhos de teclado (/ e Esc)
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== dom.searchInput) {
+        e.preventDefault();
+        dom.searchInput.focus();
+      } else if (e.key === "Escape") {
+        if (!dom.randomModal.classList.contains("hidden")) {
+          closeRandomModal();
+        } else if (document.activeElement === dom.searchInput) {
+          if (dom.searchInput.value) {
+            state.searchQuery = "";
+            dom.searchInput.value = "";
+            dom.btnClearSearch.classList.add("hidden");
+            renderSites();
+          } else {
+            dom.searchInput.blur();
+          }
+        }
+      }
+    });
+
+    // Botão Favoritos Rápido
+    dom.btnFavoritesQuick.addEventListener("click", () => {
+      state.onlyFavorites = !state.onlyFavorites;
+      updateFavoritesUI();
+      renderSidebar();
+      renderSites();
+    });
+
+    // Alternar Grade / Lista
+    dom.btnViewGrid.addEventListener("click", () => {
+      state.viewMode = "grid";
+      localStorage.setItem(STORAGE_VIEW_KEY, "grid");
+      updateViewButtonsUI();
+      renderSites();
+    });
+
+    dom.btnViewList.addEventListener("click", () => {
+      state.viewMode = "list";
+      localStorage.setItem(STORAGE_VIEW_KEY, "list");
+      updateViewButtonsUI();
+      renderSites();
+    });
+
+    // Alternar Tema
+    dom.btnThemeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      applyTheme(isDark ? "light" : "dark");
+    });
+
+    // Delegação de eventos nos cards (Favoritar, Copiar, Filtrar Categoria)
+    dom.sitesContainer.addEventListener("click", (e) => {
+      const favBtn = e.target.closest("[data-action='favorite']");
+      if (favBtn) {
+        toggleFavorite(Number(favBtn.dataset.id));
+        return;
+      }
+
+      const copyBtn = e.target.closest("[data-action='copy']");
+      if (copyBtn) {
+        copyToClipboard(copyBtn.dataset.url, copyBtn.dataset.name);
+        return;
+      }
+
+      const catBtn = e.target.closest("[data-action='filter-cat']");
+      if (catBtn) {
+        state.onlyFavorites = false;
+        state.selectedCategory = catBtn.dataset.cat;
+        updateFavoritesUI();
+        renderSidebar();
+        renderSites();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+
+    // Exportação
+    dom.btnExportJson.addEventListener("click", () => exportData("json"));
+    dom.btnExportCsv.addEventListener("click", () => exportData("csv"));
+
+    // Reset
+    dom.btnResetAll.addEventListener("click", resetAllFilters);
+    dom.btnEmptyReset.addEventListener("click", resetAllFilters);
+
+    // Modal Aleatório
+    dom.btnRandomSite.addEventListener("click", openRandomSite);
+    dom.btnRollAgain.addEventListener("click", openRandomSite);
+    dom.btnCloseRandom.addEventListener("click", closeRandomModal);
+    dom.randomModal.addEventListener("click", (e) => {
+      if (e.target === dom.randomModal) closeRandomModal();
+    });
+
+    // Voltar ao Topo
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 450) {
+        dom.btnBackToTop.classList.remove("opacity-0", "pointer-events-none", "translate-y-2");
+        dom.btnBackToTop.classList.add("opacity-100", "translate-y-0");
+      } else {
+        dom.btnBackToTop.classList.add("opacity-0", "pointer-events-none", "translate-y-2");
+        dom.btnBackToTop.classList.remove("opacity-100", "translate-y-0");
+      }
+    }, { passive: true });
+
+    dom.btnBackToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Inicialização
+    initTheme();
+    updateFavoritesUI();
+    updateViewButtonsUI();
+    renderSidebar();
+    renderSites();
+  </script>
+</body>
+</html>
